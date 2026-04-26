@@ -1,0 +1,28 @@
+doctype html
+html
+  head
+    title= title
+    link(rel="stylesheet", href="/css/style.css")
+  body
+    main.container
+      h1= title
+
+      a(href="/") Return to the homepage
+
+      if error
+        p.error= error
+
+      form(method="POST", action="/update-cobj")
+        div.form-group
+          label(for="name") Name
+          input(type="text", id="name", name="name", required, value=values ? values.name : '')
+
+        div.form-group
+          label(for="author") Author
+          input(type="text", id="author", name="author", required, value=values ? values.author : '')
+
+        div.form-group
+          label(for="genre") Genre
+          input(type="text", id="genre", name="genre", required, value=values ? values.genre : '')
+
+        button(type="submit") Create record
